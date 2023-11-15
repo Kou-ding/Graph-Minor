@@ -44,13 +44,14 @@ Transpose of a matrix is the swapping of the i and j coordinate of each element 
 of the elements with regard to the diagonal.
 Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
 
-Example
+![Example](graph-example.png)
 
 a o-------o b
   | \   / |
   |  \ /  |
 c o---o   o----o
       d   e    f
+     
  
 
 
