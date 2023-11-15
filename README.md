@@ -1,4 +1,6 @@
 # Graph-Minor
+![Example](graph-minor.jpg)
+<pre>
 1st Assignment Parallel and distributed programming.
 4page pdf report:
 -execution times of your implementations with respect to
@@ -9,6 +11,7 @@
 -argue about the validity and effectiveness of your code
 -cite external sources
 -mention other important information 
+</pre>
 Prologue
 --------
 Gist of the problem
@@ -44,7 +47,7 @@ Transpose of a matrix is the swapping of the i and j coordinate of each element 
 of the elements with regard to the diagonal.
 Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
 
-![Example](graph-example.png)
+
 <pre>
 a o-------o b
   | \   / |
