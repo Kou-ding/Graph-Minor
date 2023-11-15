@@ -19,7 +19,7 @@ Aij=0 otherwise
 If an element isn't 0 or 1, for example x, that could mean:
 either that there are x edges connecting the two vertices
 or that the edge between the two vertices is weighted and its value is x.
-
+<pre>
                              a  b  c  d
 a o-------------o b       a  0  1  1  0
   |             |         b  1  0  0  1
@@ -27,7 +27,7 @@ a o-------------o b       a  0  1  1  0
   |             |         d  0  1  1  0
 c o-------------o d      
        Graph             Adjacency Matrix
-
+</pre>
 The sum of the row's ones from the adjacency matrix signify the degree of the row's vertex.
 The diagonal contains only zeros because a vertex cannot be adjacent to itself.
 The matrix is symmetric across it's diagonal.
@@ -45,13 +45,13 @@ of the elements with regard to the diagonal.
 Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
 
 ![Example](graph-example.png)
-
+<pre>
 a o-------o b
   | \   / |
   |  \ /  |
 c o---o   o----o
       d   e    f
-     
+</pre>
  
 
 
