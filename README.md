@@ -1,18 +1,18 @@
 # Graph-Minor
 ![graph-minor-example](graph-minor.jpg)
 
-<pre>
+
 1st Assignment Parallel and distributed programming.
 4page pdf report including:
--execution times of your implementations with respect to:
-  1.the number of vertices n
-  2.the number of edges m
-  3.the number of clusters c
-  4.the number of threads
--argue about the validity and effectiveness of your code
--cite external sources
--mention other important information 
-</pre>
+1.execution times of your implementations with respect to:
+>the number of vertices n
+>the number of edges m
+>the number of clusters c
+>the number of threads p
+2.argue about the validity and effectiveness of your code
+3.cite external sources
+4.mention other important information 
+
 
 Prologue
 --------
