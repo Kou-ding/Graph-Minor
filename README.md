@@ -1,7 +1,6 @@
 # Graph-Minor
 ![graph-minor-example](graph-minor.jpg)
 
-
 1st Assignment Parallel and distributed programming.
 4page pdf report including:
 
@@ -14,17 +13,16 @@
 3. Cite external sources
 4. Mention other important information 
 
-
 Prologue
 --------
-Gist of the problem
+# Gist of the problem
 Adjacency Matrix (A):
-Aij=1 if ijεE(G) (in other words if i and j are connected we mark 1 to the relative matrix element)
-Aij=0 otherwise
+- Aij=1 if ijεE(G) (in other words if i and j are connected we mark 1 to the relative matrix element)
+- Aij=0 otherwise
 
 If an element isn't 0 or 1, for example x, that could mean:
-1.either that there are x edges connecting the two vertices
-2.or that the edge between the two vertices is weighted and its value is x.
+1. Either that there are x edges connecting the two vertices
+2. Or that the edge between the two vertices is weighted and its value is x.
 
 In the following example vertices a and b are connected with each other with two edges.
 <pre>
@@ -42,9 +40,9 @@ is a particular vertex connected with) of the row's vertex.
 The diagonal contains only zeros because a vertex cannot be adjacent to itself.
 The matrix is symmetric across its diagonal.
 
-Then we divide the graph's vectors into clusters, which are smaller graphs that, when combined, 
+Then we divide the graph's vertices into clusters, which are smaller graphs that, when combined, 
 form the original complete graph. The graph minor is a graph that is made when we combine some
-of the original graph's vertices into a clusterso that there exists an edge that it's virtices
+of the original graph's vertices into a cluster so that there exists an edge that it's virtices
 belong to the same cluster.
 
 Sparse matrices are matrices that mainly have '0' elements. This means we can represent them in
@@ -77,13 +75,13 @@ Homework
 --------
 We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked
 to produce the Graph minor of G using parallel computing. 
-<pre>
+
 There will be 4 implementations:
-1.Pthreads
-2.OpenMp
-3.OpenCilk
-4.Julia
-</pre>
+1. Pthreads
+2. OpenMp
+3. OpenCilk
+4. Julia
+
 to do:
 how V works 
 matrix market tutorial
@@ -91,8 +89,6 @@ matrix market tutorial
 
 External sources
 ----------------
-<pre>
-https://chat.openai.com
-Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
-Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
-</pre>
+- https://chat.openai.com
+- Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
+- Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
