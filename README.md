@@ -5,21 +5,19 @@
 4page pdf report including:
 
 1. Execution times of your implementations with respect to:
-  - The number of vertices n
-  - The number of edges m
-  - The number of clusters c
-  - The number of threads p
+  - The number of vertices **n**
+  - The number of edges **m**
+  - The number of clusters **c**
+  - The number of threads **p**
 2. Argue about the validity and effectiveness of your code
 3. Cite external sources
 4. Mention other important information 
 
 Prologue
 --------
-### Gist of the problem
-
-#### Adjacency Matrix
+### Adjacency Matrix
 Adjacency Matrix (A):
-- Aij=1 if ijεE(G) (in other words if i and j are connected we mark 1 to the relative matrix element)
+- Aij=1 if **ij**εE(G) (in other words if **i** and **j** are connected we mark 1 to the relative matrix element)
 - Aij=0 otherwise
 If an element isn't 0 or 1, for example x, that could mean:
 1. Either that there are x edges connecting the two vertices
@@ -34,16 +32,18 @@ a o-------------o b       a  0  2  1  0
 c o-------------o d      
        Graph             Adjacency Matrix
 </pre>
-- The sum of the row's ones from the adjacency matrix signify the **degree** (how many vertices 
-is a particular vertex connected with) of the row's vertex.
+- The sum of the row's values from the adjacency matrix signify the **degree** (how many connections 
+a particular vertex has) of the row's vertex.
 - The diagonal contains only zeros because a vertex cannot be adjacent to itself.
 - The matrix is symmetric across its diagonal.
 
-#### Clusters and V mapping
+### Clusters and V mapping
 Then we divide the graph's vertices into clusters, which are smaller graphs that, when combined, 
-form the original complete graph. The graph minor is a graph that is made when devide the graph's vertices into clusters forming  we combine some
-of the original graph's vertices into a cluster so that there exists an edge that it's virtices
-belong to the same cluster.
+form the original complete graph. The graph minor is a graph that is made when we follow any sequence
+of the following moves: 
+- Delete a vertex
+- Delete an edge
+- Contract an edge
 <pre>
 a o-------o b                              
   | \   / |           V={1,2,1,1,2,2} -->    c1 o------o c2
@@ -52,10 +52,10 @@ c o---o   o----o    Which cluster does each vertex belong to
       d   e    f
 </pre>
 
+### Sparse matrices
 Sparse matrices are matrices that mainly have '0' elements. This means we can represent them in
 a smart way in order to save time not having to display every single '0' element. When we face
 large matrices this notation can prove a very efficient way to represent the data.
-
 <pre>
     a b c d 
   a 0 0 0 1        row     |a b b c d
@@ -65,8 +65,8 @@ large matrices this notation can prove a very efficient way to represent the dat
 Sparse Matrix             
 </pre>
 
-Ω: If Ωij=1 then the node i belongs to the cluster j. Otherwise Ωij=0.
-Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping
+Ω: If Ωij=1 then the node **i** belongs to the cluster **j**. Otherwise Ωij=0.
+Transpose of a matrix is the swapping of the **i** and **j** coordinate of each element or the swapping
 of the elements with regard to the diagonal.
 Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
  
