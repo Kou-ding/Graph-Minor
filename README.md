@@ -17,7 +17,7 @@ Prologue
 --------
 ### Adjacency Matrix
 Adjacency Matrix (A):
-- Aij=1 if **ij**εE(G) (in other words if **i** and **j** are connected we mark 1 to the relative matrix element)
+- Aij=1 if ijεE(G) (in other words if i and j are connected we mark 1 to the relative matrix element)
 - Aij=0 otherwise
 If an element isn't 0 or 1, for example x, that could mean:
 1. Either that there are x edges connecting the two vertices
@@ -65,8 +65,8 @@ large matrices this notation can prove a very efficient way to represent the dat
 Sparse Matrix             
 </pre>
 
-Ω: If Ωij=1 then the node **i** belongs to the cluster **j**. Otherwise Ωij=0.
-Transpose of a matrix is the swapping of the **i** and **j** coordinate of each element or the swapping
+Ω: If Ωij=1 then the node i belongs to the cluster j. Otherwise Ωij=0.
+Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping
 of the elements with regard to the diagonal.
 Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
  
@@ -81,10 +81,10 @@ There will be 4 implementations:
 3. OpenCilk
 4. Julia
 
-to do:
-how V works 
-matrix market tutorial
-
+To do list:
+[] Matrix market tutorial
+[] General notion in Julia
+[x] How does V mapping works? 
 
 External sources
 ----------------
