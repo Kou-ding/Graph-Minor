@@ -5,16 +5,16 @@
 1st Assignment Parallel and distributed programming.
 4page pdf report including:
 
-1.execution times of your implementations with respect to:
+1. execution times of your implementations with respect to:
 <pre>
 -the number of vertices n
 -the number of edges m
 -the number of clusters c
 -the number of threads p
 </pre>
-2.argue about the validity and effectiveness of your code
-3.cite external sources
-4.mention other important information 
+2. argue about the validity and effectiveness of your code
+3. cite external sources
+4. mention other important information 
 
 
 Prologue
