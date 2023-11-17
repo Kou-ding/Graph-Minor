@@ -82,8 +82,8 @@ There will be 4 implementations:
 4. Julia
 
 To do list:
-- [] Matrix market tutorial
-- [] General notion in Julia
+- [ ] Matrix market tutorial
+- [ ] General notion in Julia
 - [x] How does V mapping works? 
 
 External sources
