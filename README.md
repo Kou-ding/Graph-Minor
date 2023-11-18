@@ -65,11 +65,24 @@ large matrices this notation can prove a very efficient way to represent the dat
 Sparse Matrix             
 </pre>
 
-Ω: If Ωij=1 then the node i belongs to the cluster j. Otherwise Ωij=0.
+### Mathematical calculation of Graph minor
+In order to calculate the graph minor we will bw using Matrix Ω:
+#### Ω: 
+- If Ωij=1 then the node i belongs to the cluster j. 
+- Otherwise Ωij=0.
+Finally Graph minor Matrix:
+- M: M = Ω(transpose) * A * Ω 
 Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping
 of the elements with regard to the diagonal.
-Finally Graph minor-Matrix M: M = Ω(transpose) * A * Ω 
- 
+
+### Matrix Market formfactor
+Matrix market matrices are usually comprised of:
+- Some general information at the start
+- a row listing the matrix dimensions and the count of all non-zero values
+- subsequeant rows that follow the pattern: [row, column, value]
+>sometimes [value] is omitted 
+
+
 Homework
 --------
 We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked
@@ -81,8 +94,10 @@ There will be 4 implementations:
 3. OpenCilk
 4. Julia
 
+
+
 To do list:
-- [ ] Matrix market tutorial
+- [x] Matrix market tutorial
 - [ ] General notion in Julia
 - [x] How does V mapping works? 
 
@@ -91,3 +106,4 @@ External sources
 - https://chat.openai.com
 - Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
 - Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
+- Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
