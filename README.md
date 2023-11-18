@@ -92,7 +92,7 @@ There will be 4 implementations:
 1. Pthreads
 2. OpenMp
 3. OpenCilk
-4. Julia
+4. Julia (optional)
 
 
 
