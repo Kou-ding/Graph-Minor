@@ -69,11 +69,14 @@ int main(int argc, char *argv[])
     /************************/
     /* now write out matrix */
     /************************/
-
+    /*
     mm_write_banner(stdout, matcode);
     mm_write_mtx_crd_size(stdout, M, N, nz);
     for (i=0; i<nz; i++)
         fprintf(stdout, "%d %d %20.19g\n", I[i]+1, J[i]+1, val[i]);
+    */
+
+    
 
 	return 0;
 }
