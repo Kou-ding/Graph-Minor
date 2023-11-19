@@ -32,15 +32,12 @@ a o-------------o b       a  0  2  1  0
 c o-------------o d      
        Graph             Adjacency Matrix
 </pre>
-- The sum of the row's values from the adjacency matrix signify the **degree** (how many connections 
-a particular vertex has) of the row's vertex.
+- The sum of the row's values from the adjacency matrix signify the **degree** (how many connections a particular vertex has) of the row's vertex.
 - The diagonal contains only zeros because a vertex cannot be adjacent to itself.
 - The matrix is symmetric across its diagonal.
 
 ### Clusters and V mapping
-Then we divide the graph's vertices into clusters, which are smaller graphs that, when combined, 
-form the original complete graph. The graph minor is a graph that is made when we follow any sequence
-of the following moves: 
+Then we divide the graph's vertices into clusters, which are smaller graphs that, when combined, form the original complete graph. The graph minor is a graph that is made when we follow any sequence of the following moves: 
 - Delete a vertex
 - Delete an edge
 - Contract an edge
@@ -53,9 +50,7 @@ c o---o   o----o    Which cluster does each vertex belong to
 </pre>
 
 ### Sparse matrices
-Sparse matrices are matrices that mainly have '0' elements. This means we can represent them in
-a smart way in order to save time not having to display every single '0' element. When we face
-large matrices this notation can prove a very efficient way to represent the data.
+Sparse matrices are matrices that mainly have '0' elements. This means we can represent them in a smart way in order to save time not having to display every single '0' element. When we face large matrices this notation can prove a very efficient way to represent the data.
 <pre>
     a b c d 
   a 0 0 0 1        row     |a b b c d
@@ -70,29 +65,19 @@ Sparse Matrix
   - a rows array
   - a columns array
   - and a values array.
-- Compressed Sparse Row(CSR) format: In (CSR) we change up the representation of the rows array. 
-Whenever a row number is repeated, instead of rewriting that number, we now state the number of 
-times a row number is repeated.
+- Compressed Sparse Row(CSR) format: In (CSR) we change up the representation of the rows array. Whenever a row number is repeated, instead of rewriting that number, we now state the number of times a row number is repeated.
 >Eg COO[0, 0, 0, 1, 2] -> CSR[3, 1, 1]
-- Compressed Sparse Columns(CSC) format: Is the same as (CSR) but now we do the same thing with columns
-as we previously did with rows.
+- Compressed Sparse Columns(CSC) format: Is the same as (CSR) but now we do the same thing with columnsas we previously did with rows.
 <pre>
 Coordinate format (COO)
-unsigned rows[5]    = | 0,   0,   0,   1,   2   |;
-unsigned columns[5] = | 0,   3,   5,   0,   3   |;
-double   values[5]  = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
+unsigned rows[5]    = [ 0,   0,   0,   1,   2   ];
+unsigned columns[5] = [ 0,   3,   5,   0,   3   ];
+double   values[5]  = [ 3.0, 4.0, 1.0, 1.0, 2.0 ];
 Compressed Sparse Row format (CSR)
-unsigned row_counts[3] = | 3,             1,   1 |;
-unsigned columns[5]    = | 0,   3,   5,   0,   3 |;
-double   values[5]     = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
+unsigned row_counts[3] = [ 3,             1,   1 ];
+unsigned columns[5]    = [ 0,   3,   5,   0,   3 ];
+double   values[5]     = [ 3.0, 4.0, 1.0, 1.0, 2.0 ];
 </pre>
-| 0,   0,   0,   1,   2   |
-| 0,   3,   5,   0,   3   |
-| 3.0, 4.0, 1.0, 1.0, 2.0 |
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
 
 ### Mathematical calculation of Graph minor
 In order to calculate the graph minor we will bw using Matrix Ω:
@@ -101,21 +86,19 @@ In order to calculate the graph minor we will bw using Matrix Ω:
 - Otherwise Ωij=0.
 Finally Graph minor Matrix:
 - M: M = Ω(transpose) * A * Ω 
-Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping
-of the elements with regard to the diagonal.
+Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping of the elements with regard to the diagonal.
 
 ### Matrix Market formfactor
 Matrix market matrices are usually comprised of:
 - Some general information at the start
-- a row listing the matrix dimensions and the count of all non-zero values
+- a row listing the matrix dimensions and the count of all non-zero values (number of non-zeros **nnz**)
 - subsequeant rows that follow the pattern: [row, column, value]
 >sometimes [value] is omitted 
 
 
 Homework
 --------
-We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked
-to produce the Graph minor of G using parallel computing. 
+We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked to produce the Graph minor of G using parallel computing. 
 
 There will be 4 implementations:
 1. Pthreads
@@ -124,6 +107,10 @@ There will be 4 implementations:
 4. Julia (optional)
 
 
+| Syntax      | Description | Test Text     |
+| :------     |    :----:   |       ------: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
 
 To do list:
 - [x] Matrix market tutorial
