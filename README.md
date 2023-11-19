@@ -61,8 +61,30 @@ large matrices this notation can prove a very efficient way to represent the dat
   a 0 0 0 1        row     |a b b c d
   b 1 0 0 5       column   |d a d b d 
   c 0 8 0 0       values   |1 1 5 8 3 
-  d 0 0 0 3         Representation
+  d 0 0 0 3       (COO) Representation
 Sparse Matrix             
+</pre>
+
+### Other representations
+- Coordinate(COO) format: In (COO) we represent a matrix with three arrays: 
+  - a rows array
+  - a columns array
+  - and a values array.
+- Compressed Sparse Row(CSR) format: In (CSR) we change up the representation of the rows array. 
+Whenever a row number is repeated, instead of rewriting that number, we now state the number of 
+times a row number is repeated.
+>Eg COO[0, 0, 0, 1, 2] -> CSR[3, 1, 1]
+- Compressed Sparse Columns(CSC) format: Is the same as (CSR) but now we do the same thing with columns
+as we previously did with rows.
+<pre>
+Coordinate format (COO)
+unsigned rows[5]    = | 0,   0,   0,   1,   2   |;
+unsigned columns[5] = | 0,   3,   5,   0,   3   |;
+double   values[5]  = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
+Compressed Sparse Row format (CSR)
+unsigned row_counts[3] = | 3,             1,   1 |;
+unsigned columns[5]    = | 0,   3,   5,   0,   3 |;
+double   values[5]     = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
 </pre>
 
 ### Mathematical calculation of Graph minor
