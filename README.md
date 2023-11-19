@@ -86,9 +86,9 @@ unsigned row_counts[3] = | 3,             1,   1 |;
 unsigned columns[5]    = | 0,   3,   5,   0,   3 |;
 double   values[5]     = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
 </pre>
-unsigned rows[5]    = | 0,   0,   0,   1,   2   |;
-unsigned columns[5] = | 0,   3,   5,   0,   3   |;
-double   values[5]  = | 3.0, 4.0, 1.0, 1.0, 2.0 |;
+| 0,   0,   0,   1,   2   |
+| 0,   3,   5,   0,   3   |
+| 3.0, 4.0, 1.0, 1.0, 2.0 |
 
 ### Mathematical calculation of Graph minor
 In order to calculate the graph minor we will bw using Matrix Ω:
