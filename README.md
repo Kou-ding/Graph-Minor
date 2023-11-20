@@ -107,7 +107,7 @@ There will be 4 implementations:
 4. Julia (optional)
 
 
-| Row |Column|Value|Vector(cluster of row)|cluster of column|
+| Row |Column|Value|Vector(cluster of row)|Vector(cluster of column)|
 |:-----|:---:|:-----:| :-----:|-----:|
 | 0 | 2 | 3 | 0 | 2 |
 | 0 | 7 | 2 | 0 | 1 |
