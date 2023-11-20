@@ -107,15 +107,23 @@ There will be 4 implementations:
 4. Julia (optional)
 
 
-| Syntax      | Description | Test Text     |
-| :------     |    :----:   |       ------: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
+| Row |Column|Value|Vector(cluster of row)|cluster of column|
+|:-----|:---:|:-----:| :-----:|-----:|
+| 0 | 2 | 3 | 0 | 2 |
+| 0 | 7 | 2 | 0 | 1 |
+| 4 | 1 | 2 | 1 | 2 |
+| 5 | 3 | 5 | 1 | 2 |
+| 8 | 4 | 7 | 0 | 1 |
+| 8 | 6 | 1 | 0 | 3 |
+| 8 | 8 | 8 | 0 | 0 |
 
-To do list:
-- [x] Matrix market tutorial
-- [ ] General notion in Julia
-- [x] How does V mapping works? 
+>V={0,2,2,2,1,1,3,1,0}
+
+Knowledge we acquired on the way:
+- [x] Git - Github
+- [x] Markdown file syntax
+- [ ] Programming in Julia
+
 
 External sources
 ----------------
