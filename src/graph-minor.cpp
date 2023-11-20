@@ -84,7 +84,7 @@ int main(int argc, char *argv[]){
         Vector[i]=rand()%8;
         printf("%d\n", Vector[i]);
     }
-    Vector[]={1,1,1,2,2,2,0,0,0};
+    //Vector[]={1,1,1,2,2,2,0,0,0};
 
     float sum=0;
     for(i=0;i<M;i++){
@@ -100,7 +100,7 @@ int main(int argc, char *argv[]){
     for(i=0;i<M;i++){
         for(int j=0;j<M;j++){
             if(I[j]=i && Vector[j]!=Vector[J[j]]){
-                graphMinor[Vector[j]][Vector[J[j]]]+=val[j];
+                //graphMinor[Vector[j]][Vector[J[j]]]+=val[j];
             }
         }
     }
