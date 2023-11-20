@@ -123,3 +123,4 @@ External sources
 - Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
 - Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
 - Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
+- Leiden Algorithm: https://www.nature.com/articles/s41598-019-41695-z
