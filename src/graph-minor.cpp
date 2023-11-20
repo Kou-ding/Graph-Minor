@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){
     MM_typecode matcode;
     FILE *f;
     int M, N, nz;   
-    int i, *I, *J, *Vector;
+    int i, *I, *J, *Vector, *graphMinor;
     double *val;
 
     if (argc < 2){
@@ -84,7 +84,26 @@ int main(int argc, char *argv[]){
         Vector[i]=rand()%8;
         printf("%d\n", Vector[i]);
     }
+    Vector[]={1,1,1,2,2,2,0,0,0};
 
+    float sum=0;
+    for(i=0;i<M;i++){
+        if (I[i]!=' '){                     //if the row isnt 
+            for (int j=0;j<M;j++){
+                if (Vector[i]!=Vector[j]){
+                    sum=val[j]+sum;
+                }
+            }
+        }
+    }
+    graphMinor = (int *) malloc(2 * M * sizeof(int));
+    for(i=0;i<M;i++){
+        for(int j=0;j<M;j++){
+            if(I[j]=i && Vector[j]!=Vector[J[j]]){
+                graphMinor[Vector[j]][Vector[J[j]]]+=val[j];
+            }
+        }
+    }
 	return 0;
 }
 
