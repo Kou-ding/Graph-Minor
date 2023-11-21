@@ -9,8 +9,8 @@ int main(int argc, char *argv[]){
     MM_typecode matcode;
     FILE *f;
     int M, N, nz;   
-    int i, *I, *J, *Vector, *graphMinor;
-    double *val;
+    int i, *I, *J, *Vector;
+    double *val, **graphMinor;
 
     if (argc < 2){
 		fprintf(stderr, "Usage: %s [martix-market-filename]\n", argv[0]);
@@ -64,46 +64,81 @@ int main(int argc, char *argv[]){
     /************************/
     /* now write out matrix */
     /************************/
-
+    //print initial matrix market file information
     printf("Matrix details:\n");
     mm_write_banner(stdout, matcode);
 
+    //print dimensions and number of non-zeros (nnz)
     printf("Matrix rows, columns, nnz:\n");
     mm_write_mtx_crd_size(stdout, M, N, nz);
+
+    //print the rows, columns and values
     /*
     printf("Row | Column | Value\n");
     for (i=0; i<nz; i++){
         fprintf(stdout, "%d %d %20.19g\n", I[i], J[i], val[i]);
     }
     */
-    Vector = (int *) malloc(M * sizeof(int));    
 
+    //Mapping Vector
+    Vector = (int *) malloc(M * sizeof(int));  
+    if(Vector==NULL){
+        printf("Memory not available.");
+        exit(1);
+    }  
+    int example_clustering[]={1,1,1,2,2,2,0,0,0};
+    Vector=example_clustering;
+    int max_vector=0;
+    for(int x=0;x<M;x++){
+        if (Vector[x]>max_vector){
+            max_vector=Vector[x];
+        }
+    }
+    printf("Vectors' max value : %d\n",max_vector);
     /*create random vector Vector*/
+    /*
     srand(time(NULL));   
-    for(i=0;i<M;i++){  
-        Vector[i]=rand()%8;
-        printf("%d\n", Vector[i]);
+    for(x=0;x<M;x++){  
+        Vector[x]=rand()%8;
+        printf("%d\n", Vector[x]);
     }
-    //Vector[]={1,1,1,2,2,2,0,0,0};
+    */
+   
+    //Clustering
+    graphMinor = (double **)malloc(M * sizeof(double *));
+    //a double pointer points at the rows of the 2d matrix created 
+    if(graphMinor==NULL){
+        printf("Memory not available.");
+        exit(1);
+    }
+    for (int x=0;x<M;x++) {
+        graphMinor[x]=(double *)malloc(M * sizeof(double));
+        for (int y=0;y<M;y++) {
+            if ((I[y] == x) && (Vector[y] != Vector[J[y]])) {
+                graphMinor[Vector[y]][Vector[J[y]]] += val[y];
+            }
+        }
+    }
+    
+    //Print the Graph minor
+    printf("GraphMinor:\n");
+    for(int x=0;x<max_vector;x++){
+        for(int y=0;y<max_vector;y++){
+            printf("%20.19g ",graphMinor[x][y]);
+        }
+        printf("\n");
+    }
 
-    float sum=0;
-    for(i=0;i<M;i++){
-        if (I[i]!=' '){                     //if the row isnt 
-            for (int j=0;j<M;j++){
-                if (Vector[i]!=Vector[j]){
-                    sum=val[j]+sum;
-                }
-            }
-        }
+    //free memory
+    for(int x=0;x<M;x++){
+        free(graphMinor[x]); //free each row of double pointer
     }
-    graphMinor = (int *) malloc(2 * M * sizeof(int));
-    for(i=0;i<M;i++){
-        for(int j=0;j<M;j++){
-            if(I[j]=i && Vector[j]!=Vector[J[j]]){
-                //graphMinor[Vector[j]][Vector[J[j]]]+=val[j];
-            }
-        }
-    }
+    free(graphMinor);
+    free(I); 
+    free(J); 
+    free(val); 
+
+
 	return 0;
 }
 

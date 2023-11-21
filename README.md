@@ -107,7 +107,7 @@ There will be 4 implementations:
 4. Julia (optional)
 
 
-| Row |Column|Value|Vector(cluster of row)|Vector(cluster of column)|
+|Row|Column|Value|Vector(cluster of row)|Vector(cluster of column)|
 |---|---|---|---|---|
 | 0 | 2 | 3 | 0 | 2 |
 | 0 | 7 | 2 | 0 | 1 |
@@ -119,10 +119,10 @@ There will be 4 implementations:
 
 >V={0,2,2,2,1,1,3,1,0}
 
-Knowledge we acquired on the way:
-- [x] Git - Github
-- [x] Markdown file syntax
-- [ ] Programming in Julia
+Things yet to implement:
+- [ ] Sub-matrices  
+- [ ] dense function for smaller matrices
+- [ ] Julia code
 
 
 External sources
@@ -132,3 +132,8 @@ External sources
 - Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
 - Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
 - Leiden Algorithm: https://www.nature.com/articles/s41598-019-41695-z
+
+Knowledge we acquired on the way:
+- [x] Git - Github
+- [x] Markdown file syntax
+- [ ] Programming in Julia
