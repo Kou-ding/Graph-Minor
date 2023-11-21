@@ -113,10 +113,11 @@ int main(int argc, char *argv[]){
     }
     for (int x=0;x<M;x++) {
         graphMinor[x]=(double *)malloc(M * sizeof(double));
-        for (int y=0;y<M;y++) {
-            if ((I[y] == x) && (Vector[y] != Vector[J[y]])) {
-                graphMinor[Vector[y]][Vector[J[y]]] += val[y];
-            }
+    }
+    
+    for(int x=0;x<M;x++){
+        if((Vector[I[x]] != Vector[J[x]])){
+            graphMinor[Vector[I[x]]][Vector[J[x]]] += val[x];
         }
     }
     
@@ -124,7 +125,7 @@ int main(int argc, char *argv[]){
     printf("GraphMinor:\n");
     for(int x=0;x<max_vector;x++){
         for(int y=0;y<max_vector;y++){
-            printf("%20.19g ",graphMinor[x][y]);
+            printf("%f ",graphMinor[x][y]);
         }
         printf("\n");
     }

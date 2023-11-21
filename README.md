@@ -122,6 +122,7 @@ There will be 4 implementations:
 Things yet to implement:
 - [ ] Sub-matrices  
 - [ ] dense function for smaller matrices
+- [ ] transfer code from windows to unix
 - [ ] Julia code
 
 
