@@ -132,8 +132,6 @@ int main(int argc, char *argv[]){
     //stop stopwatch
     end_time = clock();
 
-    // Calculate the CPU time used
-    cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
 
     //Print the Graph minor
     /*
@@ -146,6 +144,8 @@ int main(int argc, char *argv[]){
         printf("\n");
     }
     */
+
+
     //free memory
     for(int x=0;x<M;x++){
         free(graphMinor[x]); //free each row of double pointer
@@ -155,7 +155,9 @@ int main(int argc, char *argv[]){
     free(J); 
     free(val); 
     free(Vector);
-
+    
+    // Calculate the CPU time used
+    cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
     printf("Execution time: %f seconds\n", cpu_time_used);
 	return 0;
 }

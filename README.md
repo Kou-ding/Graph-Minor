@@ -18,20 +18,55 @@ My code utilizes the basic code from matrix market to eventually come up with th
 
 >for example here, if we run the code, it create a loop lasting until nnz depletes. Each repitition we check if the cluster of the row is the same with the cluster of the column. If it is the code does nothing but if it is not then we assign the value that connects the two vertices to the double pointer array Graph Minor the first coordinate of which being the cluster of the first vertice and the second one being the cluster of the second vertice.  
 
-When calculating the execution times I start the clock when the code begins and stop the clock just before I print out the graph minor. The reason why I do that is because the graph minor matrix is already in the memory and the only thing that remains is pulling out the elements
-we want to depict.
+### openMP
 
-Execution times, Matrix: 
+
+### Calculations
+When calculating the execution times I start the clock when the code begins and stop the clock just before I print out the graph minor. The reason why I do that is because the graph minor matrix is already in the memory and the only thing that remains is pulling out the elements we want to depict.
+
+Execution times mean, Matrix: celegansneural.mtx
 |C++ |openMp |openCilk| Pthreads| Julia|
 |----|-------|--------|---------|------|
-||||||
-||||||
-||||||
-||||||
-||||||
+|0.003|||||
+|0.002|||||
+|0.003|||||
+|0.004|||||
+|0.002|||||
 |Mean score|Mean score|Mean score|Mean score|Mean score|
-|----------|----------|----------|----------|----------|
-||||||
+|0.0028|||||
+
+Execution times mean, Matrix: foldoc.mtx
+|C++ |openMp |openCilk| Pthreads| Julia|
+|----|-------|--------|---------|------|
+|0.198|||||
+|0.207|||||
+|0.240|||||
+|0.200|||||
+|0.201|||||
+|Mean score|Mean score|Mean score|Mean score|Mean score|
+|0.2092|||||
+
+Execution times mean, Matrix: language.mtx
+|C++ |openMp |openCilk| Pthreads| Julia|
+|----|-------|--------|---------|------|
+|4.112|||||
+|4.055|||||
+|4.094|||||
+|4.090|||||
+|4.456|||||
+|Mean score|Mean score|Mean score|Mean score|Mean score|
+|4.1614|||||
+
+Execution times mean, Matrix: eu-2005.mtx
+|C++ |openMp |openCilk| Pthreads| Julia|
+|----|-------|--------|---------|------|
+|41.162|||||
+|41.049|||||
+|44.852|||||
+|41.887|||||
+|41.919|||||
+|Mean score|Mean score|Mean score|Mean score|Mean score|
+|42.1738|||||
 
 External sources
 ----------------
