@@ -8,7 +8,7 @@ CXXFLAGS = -std=c++11 -Wall -fopenmp
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
-APPNAME = graphminor-OpenMP
+APPNAME = gm-openMP
 SRCDIR = src
 OBJDIR = obj
 
