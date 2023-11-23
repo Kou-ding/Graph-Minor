@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "include/mmio.h"
-#include <omp.h>
 
 int main(int argc, char *argv[]){
 
@@ -64,7 +63,6 @@ int main(int argc, char *argv[]){
 
     if (f !=stdin) fclose(f);
 
-
     /************************/
     /* now write out matrix */
     /************************/
@@ -83,8 +81,6 @@ int main(int argc, char *argv[]){
         fprintf(stdout, " %d %d %20.19g\n", I[i], J[i], val[i]);
     }
     */
-
-
     //Mapping Vector
     Vector = (int *) malloc(M * sizeof(int));  
     if(Vector==NULL){
@@ -97,10 +93,8 @@ int main(int argc, char *argv[]){
     //create random vector Vector
     srand(time(NULL));   
     int vector_max=0;
-    #pragma omp parallel for
     for(int x=0;x<M;x++){  
         Vector[x]=(rand()%3);
-        #pragma omp critical
         if (Vector[x]>vector_max){
             vector_max=Vector[x];
         }
@@ -119,7 +113,6 @@ int main(int argc, char *argv[]){
     }
 
     //initialize graph minor
-    #pragma omp parallel for collapse(2)
     for(int x=0;x<=vector_max;x++){
         for(int y=0;y<=vector_max;y++){
             graphMinor[x][y]=0;
@@ -127,17 +120,13 @@ int main(int argc, char *argv[]){
     }
 
     //create connections between clusters
-    #pragma omp parallel for
     for(int x=0;x<nz;x++){
         if(Vector[I[x]] != Vector[J[x]]){
-            {
-                #pragma omp critical
-                graphMinor[Vector[I[x]]][Vector[J[x]]]+=val[x];
-                /*//Extra code for debugging
-                printf("x: %d,\nI[x]: %d,\nJ[x]: %d,\nval[x]: %.0f,\n",x,I[x],J[x],val[x]);
-                printf("Vector[I[x]]: %d,\nVector[J[x]]: %d,\ngm: %.0f\n\n",Vector[I[x]],Vector[J[x]],graphMinor[Vector[I[x]]][Vector[J[x]]]);
-                */
-            }
+            graphMinor[Vector[I[x]]][Vector[J[x]]]+=val[x];
+            /*//Extra code for debugging
+            printf("x: %d,\nI[x]: %d,\nJ[x]: %d,\nval[x]: %.0f,\n",x,I[x],J[x],val[x]);
+            printf("Vector[I[x]]: %d,\nVector[J[x]]: %d,\ngm: %.0f\n\n",Vector[I[x]],Vector[J[x]],graphMinor[Vector[I[x]]][Vector[J[x]]]);
+            */
         }
     }
     //stop stopwatch
