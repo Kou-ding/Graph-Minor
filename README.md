@@ -1,5 +1,49 @@
-# Graph-Minor
-![graph-minor-example](graph-minor.jpg)
+# Graph-Minor-Assignment
+Homework 1
+----------
+We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked to produce the Graph minor of G using parallel computing. 
+
+### C/C++
+My code utilizes the basic code from matrix market to eventually come up with the code that produces the graph minor. First I use the arrays I[], J[], var[] from the matrix market as they have been generated and utilizing a mapping vector graph's vertices are mapped into clusters. In order to generate the graph minor I, first, create a double pointer called graphMinor and then initialize its elements to be zero. Then I traverse the arrays I[], J[] and check if their cluster is the same(if Vector[I[x]]==Vector[J[x]]). If it is not then the value of the, as originally meant to be, edge between the two vertices is added to a summation. This summation will gradually include all the edge values between every combination of the different cluster elements and these will be stored at the graph minor array element denoted by the two cluster numbers (graphMinor(cluster1)(cluster2)).
+
+|Id |Row|Column|Value|Vector(cluster of row)|Vector(cluster of column)|
+|---|----|----|----|-------------|-------------|
+|1  | r1 | c1 | v1 |Cluster-of-r1|Cluster-of-c1|
+|2  | r2 | c2 | v2 |Cluster-of-r2|Cluster-of-c2|
+|3  | r3 | c3 | v3 |Cluster-of-r3|Cluster-of-c3|
+|4  | r4 | c4 | v4 |Cluster-of-r4|Cluster-of-c4|
+|5  | r5 | c5 | v5 |Cluster-of-r5|Cluster-of-c5|
+|6  | r6 | c6 | v6 |Cluster-of-r6|Cluster-of-c6|
+|...|... |... |... |     ...     |     ...     |
+
+>for example here, if we run the code, it create a loop lasting until nnz depletes. Each repitition we check if the cluster of the row is the same with the cluster of the column. If it is the code does nothing but if it is not then we assign the value that connects the two vertices to the double pointer array Graph Minor the first coordinate of which being the cluster of the first vertice and the second one being the cluster of the second vertice.  
+
+When calculating the execution times I start the clock when the code begins and stop the clock just before I print out the graph minor. The reason why I do that is because the graph minor matrix is already in the memory and the only thing that remains is pulling out the elements
+we want to depict.
+
+Execution times, Matrix: 
+|C++ |openMp |openCilk| Pthreads| Julia|
+|----|-------|--------|---------|------|
+||||||
+||||||
+||||||
+||||||
+||||||
+|Mean score|Mean score|Mean score|Mean score|Mean score|
+|----------|----------|----------|----------|----------|
+||||||
+
+External sources
+----------------
+- General consulting/debugging: https://chat.openai.com
+- Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
+- Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
+- Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
+- Leiden Algorithm: https://www.nature.com/articles/s41598-019-41695-z
+- Malloc 2d array: https://www.youtube.com/watch?v=aR7tkVj3UU0
+
+# Graph-Minor-Additional information
+[graph-minor-example](graph-minor.jpg)
 
 1st Assignment Parallel and distributed programming.
 4page pdf report including:
@@ -13,7 +57,14 @@
 3. Cite external sources
 4. Mention other important information 
 
-Prologue
+There will be 4 implementations:
+1. C/C++
+2. OpenMp
+3. OpenCilk
+4. Pthreads
+5. Julia (optional)
+
+Analysis of Individual knowledge needed for the assignment
 --------
 ### Adjacency Matrix
 Adjacency Matrix (A):
@@ -95,46 +146,14 @@ Matrix market matrices are usually comprised of:
 - subsequeant rows that follow the pattern: [row, column, value]
 >sometimes [value] is omitted 
 
-
-Homework
---------
-We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked to produce the Graph minor of G using parallel computing. 
-
-There will be 4 implementations:
-1. Pthreads
-2. OpenMp
-3. OpenCilk
-4. Julia (optional)
-
-
-|Row|Column|Value|Vector(cluster of row)|Vector(cluster of column)|
-|---|---|---|---|---|
-| 0 | 2 | 3 | 0 | 2 |
-| 0 | 7 | 2 | 0 | 1 |
-| 4 | 1 | 2 | 1 | 2 |
-| 5 | 3 | 5 | 1 | 2 |
-| 8 | 4 | 7 | 0 | 1 |
-| 8 | 6 | 1 | 0 | 3 |
-| 8 | 8 | 8 | 0 | 0 |
-
->V={0,2,2,2,1,1,3,1,0}
+# Tickboxes
+Knowledge we acquired on the way:
+- [x] Git - Github
+- [x] Markdown file syntax
+- [ ] Programming in Julia
 
 Things yet to implement:
 - [ ] Sub-matrices  
 - [ ] dense function for smaller matrices
 - [ ] transfer code from windows to unix
 - [ ] Julia code
-
-
-External sources
-----------------
-- General consulting/debugging: https://chat.openai.com
-- Adjacency Matrix: https://www.youtube.com/watch?v=7AhHGp7EzZ8
-- Graph Minors: https://www.youtube.com/watch?v=IJr8jXkGvX0
-- Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
-- Leiden Algorithm: https://www.nature.com/articles/s41598-019-41695-z
-
-Knowledge we acquired on the way:
-- [x] Git - Github
-- [x] Markdown file syntax
-- [ ] Programming in Julia
