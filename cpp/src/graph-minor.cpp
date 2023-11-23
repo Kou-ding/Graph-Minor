@@ -93,10 +93,8 @@ int main(int argc, char *argv[]){
     //create random vector Vector
     srand(time(NULL));   
     int vector_max=0;
-    #pragma omp parallel for
     for(int x=0;x<M;x++){  
         Vector[x]=(rand()%3);
-        #pragma omp critical
         if (Vector[x]>vector_max){
             vector_max=Vector[x];
         }
@@ -163,4 +161,3 @@ int main(int argc, char *argv[]){
     printf("Execution time: %f seconds\n", cpu_time_used);
 	return 0;
 }
-
