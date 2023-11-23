@@ -4,11 +4,12 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++11 -Wall -fopenmp
+CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
 APPNAME = gm-openMP
+EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
 
