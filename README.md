@@ -185,7 +185,7 @@ Matrix market matrices are usually comprised of:
 Knowledge we acquired on the way:
 - [x] Git - Github
 - [x] Markdown file syntax
-- [ ] Programming in Julia
+- [x] Programming in Julia
 
 Things yet to implement:
 - [ ] Sub-matrices  
