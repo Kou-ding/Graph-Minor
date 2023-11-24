@@ -190,5 +190,5 @@ Knowledge we acquired on the way:
 Things yet to implement:
 - [ ] Sub-matrices  
 - [ ] dense function for smaller matrices
-- [ ] transfer code from windows to unix
-- [ ] Julia code
+- [x] transfer code from windows to unix
+- [x] Julia code
