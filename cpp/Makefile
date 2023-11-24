@@ -3,7 +3,10 @@
 ########################################################################
 
 # Compiler settings - Can be customized.
-CC = g++
+CC := $(shell command -v clang 2> /dev/null)
+ifeq ($(CC),)
+    CC := gcc
+endif
 CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = 
 

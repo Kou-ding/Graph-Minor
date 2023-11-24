@@ -1,4 +1,7 @@
-CC = g++
+CC := $(shell command -v clang 2> /dev/null)
+ifeq ($(CC),)
+    CC := gcc
+endif
 CFLAGS = -Wall -std=c++11 -fopenmp
 LFLAGS = -lgomp
 
