@@ -4,7 +4,7 @@ Homework 1
 We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked to produce the Graph minor of G using parallel computing. 
 
 ### C/C++
-My code utilizes the basic code from matrix market to eventually come up with the code that produces the graph minor. First I use the arrays I[], J[], var[] from the matrix market as they have been generated and utilizing a mapping vector graph's vertices are mapped into clusters. In order to generate the graph minor I, first, create a double pointer called graphMinor and then initialize its elements to be zero. Then I traverse the arrays I[], J[] and check if their cluster is the same(if Vector[I[x]]==Vector[J[x]]). If it is not then the value of the, as originally meant to be, edge between the two vertices is added to a summation. This summation will gradually include all the edge values between every combination of the different cluster elements and these will be stored at the graph minor array element denoted by the two cluster numbers (graphMinor(cluster1)(cluster2)).
+My code utilizes the basic code from Matrix Market to eventually come up with the code that produces the graph minor. First I use the arrays I[], J[], var[] from the matrix market as they have been generated and utilizing a mapping vector graph's vertices are mapped into clusters. In order to generate the graph minor I, first, create a double pointer called graphMinor and then initialize its elements to be zero. Then I traverse the arrays I[], J[] and check if their cluster is the same(if Vector[I[x]]==Vector[J[x]]). If it is not then the value of the, as originally meant to be, edge between the two vertices is added to a summation. This summation will gradually include all the edge values between every combination of the different cluster elements and these will be stored at the graph minor array element denoted by the two cluster numbers (graphMinor(cluster1)(cluster2)).
 
 |Id |Row|Column|Value|Vector(cluster of row)|Vector(cluster of column)|
 |---|----|----|----|-------------|-------------|
@@ -68,6 +68,12 @@ Execution times mean, Matrix: eu-2005.mtx
 |Mean score|Mean score|Mean score|Mean score|Mean score|
 |42.1738|||||
 
+Matrices' sources
+- https://sparse.tamu.edu/Newman/celegansneural
+- https://sparse.tamu.edu/Pajek/foldoc
+- https://sparse.tamu.edu/Tromble/language
+- https://sparse.tamu.edu/LAW/eu-2005
+
 External sources
 ----------------
 - General consulting/debugging: https://chat.openai.com
@@ -94,7 +100,7 @@ External sources
 
 There will be 4 implementations:
 1. C/C++
-2. OpenMp
+2. OpenMP
 3. OpenCilk
 4. Pthreads
 5. Julia (optional)
@@ -105,10 +111,10 @@ Analysis of Individual knowledge needed for the assignment
 Adjacency Matrix (A):
 - Aij=1 if ijεE(G) (in other words if i and j are connected we mark 1 to the relative matrix element)
 - Aij=0 otherwise
-If an element isn't 0 or 1, for example x, that could mean:
+If an element isn't 0 or 1, suppose it is equal to x, that could mean:
 1. Either that there are x edges connecting the two vertices
 2. Or that the edge between the two vertices is weighted and its value is x.
-In the following example vertices a and b are connected with each other with two edges.
+In the following example-vertices, a and b are connected with each other with two edges.
 <pre>
                              a  b  c  d
 a o-------------o b       a  0  2  1  0
@@ -118,7 +124,7 @@ a o-------------o b       a  0  2  1  0
 c o-------------o d      
        Graph             Adjacency Matrix
 </pre>
-- The sum of the row's values from the adjacency matrix signify the **degree** (how many connections a particular vertex has) of the row's vertex.
+- The sum of the row's values from the adjacency matrix signifies the **degree** (how many connections a particular vertex has) of the row's vertex.
 - The diagonal contains only zeros because a vertex cannot be adjacent to itself.
 - The matrix is symmetric across its diagonal.
 
@@ -136,7 +142,7 @@ c o---o   o----o    Which cluster does each vertex belong to
 </pre>
 
 ### Sparse matrices
-Sparse matrices are matrices that mainly have '0' elements. This means we can represent them in a smart way in order to save time not having to display every single '0' element. When we face large matrices this notation can prove a very efficient way to represent the data.
+Sparse matrices are matrices that mainly have '0' elements. This means we can smartly represent them in order to save time not having to display every single '0' element. When we face large matrices this notation can prove a very efficient way to represent the data.
 <pre>
     a b c d 
   a 0 0 0 1        row     |a b b c d
@@ -153,7 +159,7 @@ Sparse Matrix
   - and a values array.
 - Compressed Sparse Row(CSR) format: In (CSR) we change up the representation of the rows array. Whenever a row number is repeated, instead of rewriting that number, we now state the number of times a row number is repeated.
 >Eg COO[0, 0, 0, 1, 2] -> CSR[3, 1, 1]
-- Compressed Sparse Columns(CSC) format: Is the same as (CSR) but now we do the same thing with columnsas we previously did with rows.
+- Compressed Sparse Columns(CSC) format: It is the same as (CSR) but now we do the same thing with columns as we previously did with rows.
 <pre>
 Coordinate format (COO)
 unsigned rows[5]    = [ 0,   0,   0,   1,   2   ];
@@ -174,21 +180,21 @@ Finally Graph minor Matrix:
 - M: M = Ω(transpose) * A * Ω 
 Transpose of a matrix is the swapping of the i and j coordinate of each element or the swapping of the elements with regard to the diagonal.
 
-### Matrix Market formfactor
+### Matrix Market form factor
 Matrix market matrices are usually comprised of:
 - Some general information at the start
 - a row listing the matrix dimensions and the count of all non-zero values (number of non-zeros **nnz**)
-- subsequeant rows that follow the pattern: [row, column, value]
+- subsequent rows that follow the pattern: [row, column, value]
 >sometimes [value] is omitted 
 
 # Tickboxes
-Knowledge we acquired on the way:
-- [x] Git - Github
+The knowledge we acquired on the way:
+- [x] Git - GitHub
 - [x] Markdown file syntax
 - [x] Programming in Julia
 
-Things yet to implement:
+Things yet to be implemented:
 - [ ] Sub-matrices  
 - [ ] dense function for smaller matrices
-- [x] transfer code from windows to unix
+- [x] transfer code from Windows to Unix
 - [x] Julia code
