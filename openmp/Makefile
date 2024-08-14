@@ -1,5 +1,5 @@
 CC =g++
-CFLAGS = -Wall -std=c++11 -fopenmp
+CFLAGS = -Wall -O3 -std=c++11 -fopenmp
 LFLAGS = -lgomp
 
 all: openmp

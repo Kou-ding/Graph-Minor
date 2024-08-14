@@ -3,7 +3,7 @@
 # $< (first prerequisite): refers to the first thing that is after the ":"
 
 CC = g++
-CFLAGS = -std=c++11 -Wall 
+CFLAGS = -std=c++11 -O3 -Wall 
 
 # all is the default action in makefiles
 all: graph_minor

@@ -1,5 +1,5 @@
 CC = /home/kou/coding/Graph-Minor/opencilk_compiler/opencilk-2.1.0-x86_64-linux-gnu-ubuntu-22.04/bin/clang++
-CFLAGS = -Wall -std=c++11 -fopencilk
+CFLAGS = -Wall -O3 -std=c++11 -fopencilk
 LFLAGS = -fopencilk
 
 all: cilk
