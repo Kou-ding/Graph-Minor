@@ -4,7 +4,7 @@ Homework 1
 We are given the adjacency matrix (A) and the mapping vector (V) of a graph (G) and we are asked to produce the Graph minor of G using parallel computing. 
 
 ### C/C++
-My code utilizes the basic code from Matrix Market to eventually come up with the code that produces the graph minor. First I use the arrays I[], J[], var[] from the matrix market as they have been generated and utilizing a mapping vector graph's vertices are mapped into clusters. In order to generate the graph minor I, first, create a double pointer called graphMinor and then initialize its elements to be zero. Then I traverse the arrays I[], J[] and check if their cluster is the same(if Vector[I[x]]==Vector[J[x]]). If it is not then the value of the, as originally meant to be, edge between the two vertices is added to a summation. This summation will gradually include all the edge values between every combination of the different cluster elements and these will be stored at the graph minor array element denoted by the two cluster numbers (graphMinor(cluster1)(cluster2)).
+My code utilizes the basic code from Matrix Market to eventually come up with the code that produces the graph minor. First, we use the arrays I[], J[], var[] from the matrix market as they have been generated and utilizing a mapping vector graph's vertices are mapped into clusters. In order to generate the graph minor we, first, create a double pointer called graphMinor and then initialize its elements to be zero. Then we traverse the arrays I[], J[] and check if their cluster is the same(if Vector[I[x]]==Vector[J[x]]). If it is not then the value of the, as originally meant to be, edge between the two vertices is added to a summation. This summation will gradually include all the edge values between every combination of the different cluster elements and these will be stored at the graph minor array element denoted by the two cluster numbers (graphMinor(cluster1)(cluster2)).
 
 |Id |Row|Column|Value|Vector(cluster of row)|Vector(cluster of column)|
 |---|----|----|----|-------------|-------------|
@@ -22,7 +22,7 @@ My code utilizes the basic code from Matrix Market to eventually come up with th
 
 
 ### Calculations
-When calculating the execution times I start the clock when the code begins and stop the clock just before I print out the graph minor. The reason why I do that is because the graph minor matrix is already in the memory and the only thing that remains is pulling out the elements we want to depict.
+When calculating the execution times we start the clock when the code begins and stop the clock just before we print out the graph minor. The reason why we do that is because the graph minor matrix is already in the memory and the only thing that remains is pulling out the elements we want to depict.
 
 Execution times mean, Matrix: celegansneural.mtx
 |C++ |openMp |openCilk| Pthreads| Julia|
@@ -142,7 +142,7 @@ c o---o   o----o    Which cluster does each vertex belong to
 </pre>
 
 ### Sparse matrices
-Sparse matrices are matrices that mainly have '0' elements. This means we can smartly represent them in order to save time not having to display every single '0' element. When we face large matrices this notation can prove a very efficient way to represent the data.
+Sparse matrices are matrices that mainly have '0' elements. This means we can smartly represent them in an alternative way by not having to display every single '0' element, ultimately saving time. When we face large matrices this notation can prove a very efficient way to represent the data.
 <pre>
     a b c d 
   a 0 0 0 1        row     |a b b c d
@@ -172,7 +172,7 @@ double   values[5]     = [ 3.0, 4.0, 1.0, 1.0, 2.0 ];
 </pre>
 
 ### Mathematical calculation of Graph minor
-In order to calculate the graph minor we will bw using Matrix Ω:
+In order to calculate the graph minor we will be using Matrix Ω:
 #### Ω: 
 - If Ωij=1 then the node i belongs to the cluster j. 
 - Otherwise Ωij=0.

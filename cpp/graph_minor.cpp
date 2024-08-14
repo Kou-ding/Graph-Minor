@@ -3,6 +3,8 @@
 #include <time.h>
 #include "include/mmio.h"
 
+#define NUM_CLUSTERS 3 //number of clusters
+
 int main(int argc, char *argv[]){
 
     int ret_code;
@@ -81,20 +83,20 @@ int main(int argc, char *argv[]){
         fprintf(stdout, " %d %d %20.19g\n", I[i], J[i], val[i]);
     }
     */
+   
     //Mapping Vector
     Vector = (int *) malloc(M * sizeof(int));  
     if(Vector==NULL){
         printf("Memory not available.");
         exit(1);
     }  
-    //int example_clustering[]={0,1,0,2,1};
-    //Vector=example_clustering;
-    
-    //create random vector Vector
+
+    // Assign a random number to each node
+    // This number will be the cluster that the node belongs to
     srand(time(NULL));   
     int vector_max=0;
     for(int x=0;x<M;x++){  
-        Vector[x]=(rand()%3);
+        Vector[x]=(rand()%NUM_CLUSTERS); //random number between 0 and NUM_CLUSTERS-1
         if (Vector[x]>vector_max){
             vector_max=Vector[x];
         }
@@ -146,7 +148,7 @@ int main(int argc, char *argv[]){
     */
 
 
-    //free memory
+    // Free memory
     for(int x=0;x<M;x++){
         free(graphMinor[x]); //free each row of double pointer
     }
