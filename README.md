@@ -84,7 +84,7 @@ External sources
 - Malloc 2d array: https://www.youtube.com/watch?v=aR7tkVj3UU0
 
 # Graph-Minor-Additional information
-[graph-minor-example](graph-minor.jpg)
+![graph-minor-example](graph-minor.jpg)
 
 1st Assignment Parallel and distributed programming.
 4page pdf report including:
