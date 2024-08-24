@@ -82,6 +82,12 @@ External sources
 - Ways to store matrices: https://medium.com/@jmaxg3/101-ways-to-store-a-sparse-matrix-c7f2bf15a229
 - Leiden Algorithm: https://www.nature.com/articles/s41598-019-41695-z
 - Malloc 2d array: https://www.youtube.com/watch?v=aR7tkVj3UU0
+- Matrix Market library: https://math.nist.gov/MatrixMarket/mmio-c.html
+- POSIX threads archived tutorial: https://hpc-tutorials.llnl.gov/posix/
+- OpenMP: https://www.openmp.org/wp-content/uploads/OpenMP-4.5-1115-CPP-web.pdf
+- Cilk: https://cilk.mit.edu/programming/
+- Sparse matrices: https://en.wikipedia.org/wiki/Sparse_matrix
+- Markdown Guide: https://www.markdownguide.org/
 
 # Graph-Minor-Additional information
 ![graph-minor-example](graph-minor.jpg)
